@@ -1,34 +1,37 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useAuthStore } from "@/store/auth-store"
-import { Button } from "@/components/ui/button"
-import { Home, Package, Calendar, User, LogOut, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useAuthStore } from "@/store/auth-store";
+import { Button } from "@/components/ui/button";
+import { Home, Package, Calendar, User, LogOut, Menu, X } from "lucide-react";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // const { user, logout } = useAuthStore()
-  const { logout } = useAuthStore()
-  const pathname = usePathname()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { logout } = useAuthStore();
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  
   const user = {
     fullName: "Edson Builir",
     nif: "dsdsdsdfdgsf",
     email: "edson@exemplo.com",
     password: "1234ssda56",
     userType: "provider",
-    id:9
-  }
+    id: 9,
+  };
 
   // Close mobile menu when path changes
   useEffect(() => {
-    setIsMobileMenuOpen(false)
-  }, [pathname])
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   const navItems = [
     {
@@ -51,13 +54,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       href: "/dashboard/profile",
       icon: User,
     },
-  ]
+  ];
 
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Mobile menu button */}
       <div className="fixed top-4 right-4 z-50 md:hidden">
-        <Button variant="outline" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </Button>
       </div>
@@ -85,7 +92,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     href={item.href}
                     className={`
                       flex items-center gap-3 px-4 py-2 rounded-md transition-colors
-                      ${pathname === item.href ? "bg-blue-50 text-blue-600" : "hover:bg-gray-100"}
+                      ${
+                        pathname === item.href
+                          ? "bg-blue-50 text-blue-600"
+                          : "hover:bg-gray-100"
+                      }
                     `}
                   >
                     <item.icon size={18} />
@@ -112,6 +123,5 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main content */}
       <main className="flex-1 overflow-auto">{children}</main>
     </div>
-  )
+  );
 }
-
