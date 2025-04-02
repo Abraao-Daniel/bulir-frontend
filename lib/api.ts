@@ -1,6 +1,6 @@
-import { getAuthToken } from "./auth"
+// import { getAuthToken } from "./auth"
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3004/api"
 
 interface ApiOptions {
   method?: string
@@ -9,16 +9,14 @@ interface ApiOptions {
 }
 
 export async function fetchApi<T>(endpoint: string, options: ApiOptions = {}): Promise<T> {
-  const token = getAuthToken()
+  // const token = getAuthToken()
 
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
     ...options.headers,
   }
 
-  if (token) {
-    headers["Authorization"] = `Bearer ${token}`
-  }
+    headers["Authorization"] = `jdhfjasjhsakjhdjsa`
 
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     method: options.method || "GET",

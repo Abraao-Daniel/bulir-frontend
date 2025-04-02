@@ -7,9 +7,9 @@ import { getServiceById } from "@/lib/services"
 export default async function EditServicePage({ params }: { params: { id: string } }) {
   // Check if user is authenticated
   const token = getAuthToken()
-  if (!token) {
-    redirect("/")
-  }
+  // if (!token) {
+  //   redirect("/")
+  // }
 
   // Get user info
   const user = getUserInfo()

@@ -13,6 +13,7 @@ import { useToast } from "@/components/ui/use-toast"
 export default function ServicesList() {
   const { services, isLoading, error, fetchServices, removeService } = useServicesStore()
   const { user } = useAuthStore()
+  
   const router = useRouter()
   const { toast } = useToast()
 

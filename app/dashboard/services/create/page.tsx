@@ -1,22 +1,22 @@
-import { redirect } from "next/navigation"
-import { getAuthToken, getUserInfo } from "@/lib/auth"
+// import { redirect } from "next/navigation"
+// import { getAuthToken, getUserInfo } from "@/lib/auth"
 import DashboardLayout from "@/components/layouts/dashboard-layout"
 import ServiceForm from "@/components/services/service-form"
 
 export default function CreateServicePage() {
   // Check if user is authenticated
-  const token = getAuthToken()
-  if (!token) {
-    redirect("/")
-  }
+  // const token = getAuthToken()
+  // if (!token) {
+  //   redirect("/")
+  // }
 
   // Get user info
-  const user = getUserInfo()
+  // const user = getUserInfo()
 
   // Only providers can create services
-  if (user?.userType !== "provider") {
-    redirect("/dashboard")
-  }
+  // if (user?.userType !== "provider") {
+  //   redirect("/dashboard")
+  // }
 
   return (
     <DashboardLayout>

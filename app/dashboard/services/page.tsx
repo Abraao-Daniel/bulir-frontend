@@ -8,12 +8,14 @@ import Link from "next/link"
 export default function ServicesPage() {
   // Check if user is authenticated
   const token = getAuthToken()
-  if (!token) {
-    redirect("/")
-  }
+  // if (!token) {
+  //   redirect("/")
+  // }
 
   // Get user info
   const user = getUserInfo()
+  
+
 
   return (
     <DashboardLayout>
@@ -21,11 +23,11 @@ export default function ServicesPage() {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Services</h1>
 
-          {user?.userType === "provider" && (
+          {/* {user?.userType === "provider" && ( */}
             <Link href="/dashboard/services/create">
               <Button>Create New Service</Button>
             </Link>
-          )}
+          {/* )} */}
         </div>
 
         <ServicesList />

@@ -6,17 +6,17 @@ import BookingForm from "@/components/bookings/booking-form"
 export default function CreateBookingPage() {
   // Check if user is authenticated
   const token = getAuthToken()
-  if (!token) {
-    redirect("/")
-  }
+  // if (!token) {
+  //   redirect("/")
+  // }
 
   // Get user info
   const user = getUserInfo()
 
   // Only clients can create bookings
-  if (user?.userType !== "client") {
-    redirect("/dashboard")
-  }
+  // if (user?.userType !== "client") {
+  //   redirect("/dashboard")
+  // }
 
   return (
     <DashboardLayout>

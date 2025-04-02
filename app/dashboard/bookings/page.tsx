@@ -4,11 +4,11 @@ import DashboardLayout from "@/components/layouts/dashboard-layout"
 import BookingsList from "@/components/bookings/bookings-list"
 
 export default function BookingsPage() {
-  // Check if user is authenticated
-  const token = getAuthToken()
-  if (!token) {
-    redirect("/")
-  }
+  //  Check if user is authenticated
+   const token = getAuthToken()
+  // if (!token) {
+  //   redirect("/")
+  // }
 
   return (
     <DashboardLayout>

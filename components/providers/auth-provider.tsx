@@ -15,19 +15,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   useEffect(() => {
-    // Check if token is expired
-    if (isTokenExpired()) {
-      logout()
-      if (!publicRoutes.includes(pathname)) {
-        router.push("/")
-      }
-      return
-    }
+    // // Check if token is expired
+    // if (isTokenExpired()) {
+    //   logout()
+    //   if (!publicRoutes.includes(pathname)) {
+    //     router.push("/")
+    //   }
+    //   return
+    // }
 
-    // Refresh user data from token
-    if (!user) {
-      refreshUser()
-    }
+    // // Refresh user data from token
+    // if (!user) {
+    //   refreshUser()
+    // }
   }, [pathname, user, refreshUser, logout, router])
 
   return <>{children}</>

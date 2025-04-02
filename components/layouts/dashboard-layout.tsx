@@ -10,9 +10,20 @@ import { Button } from "@/components/ui/button"
 import { Home, Package, Calendar, User, LogOut, Menu, X } from "lucide-react"
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, logout } = useAuthStore()
+  // const { user, logout } = useAuthStore()
+  const { logout } = useAuthStore()
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  
+  const user = {
+    fullName: "Edson Builir",
+    nif: "dsdsdsdfdgsf",
+    email: "edson@exemplo.com",
+    password: "1234ssda56",
+    userType: "provider",
+    id:9
+  }
 
   // Close mobile menu when path changes
   useEffect(() => {

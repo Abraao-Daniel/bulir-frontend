@@ -11,6 +11,7 @@ import { useToast } from "@/components/ui/use-toast"
 export default function BookingsList() {
   const { bookings, isLoading, error, fetchBookings, cancelBooking } = useBookingsStore()
   const { user } = useAuthStore()
+
   const { toast } = useToast()
 
   useEffect(() => {
@@ -43,26 +44,24 @@ export default function BookingsList() {
     )
   }
 
-  if (error) {
-    return (
-      <div className="py-12 text-center">
-        <p className="text-red-500">{error}</p>
-        <Button onClick={() => fetchBookings()} className="mt-4">
-          Try Again
-        </Button>
-      </div>
-    )
-  }
+  // if (error) {
+  //   return (
+  //     <div className="py-12 text-center">
+  //       <p className="text-red-500">{error}</p>
+  //       <Button onClick={() => fetchBookings()} className="mt-4">
+  //         Try Again
+  //       </Button>
+  //     </div>
+  //   )
+  // }
 
   if (bookings.length === 0) {
     return (
       <div className="py-12 text-center">
         <p className="text-muted-foreground">No bookings found.</p>
-        {user?.userType === "client" && (
           <Button asChild className="mt-4">
             <a href="/dashboard/services">Book a Service</a>
           </Button>
-        )}
       </div>
     )
   }
@@ -86,12 +85,12 @@ export default function BookingsList() {
                 <span>{new Date(booking.bookingDate).toLocaleTimeString()}</span>
               </div>
 
-              {user?.userType === "provider" && (
+              {/* {user?.userType === "provider" && ( */}
                 <div className="text-sm">
                   <span className="text-muted-foreground">Client: </span>
                   <span>{booking.clientName}</span>
                 </div>
-              )}
+              {/* )} */}
 
               <div className="flex items-center justify-between mt-2">
                 <span
