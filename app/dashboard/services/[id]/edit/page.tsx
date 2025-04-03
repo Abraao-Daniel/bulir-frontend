@@ -12,7 +12,7 @@ export default async function EditServicePage({ params }: { params: { id: string
   // }
 
   // Get user info
-  const user = getUserInfo()
+
 
   // Only providers can edit services
   // if (user?.userType !== "provider") {

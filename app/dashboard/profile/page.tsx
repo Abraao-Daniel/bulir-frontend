@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { getUserInfo } from "@/lib/auth"
+import { getUserInfo, User } from "@/lib/auth"
 import { useEffect, useState } from "react"
-import { User, Mail, BadgeIcon as IdCard, Type, Calendar, UserCircle } from "lucide-react"
+import { User as  U, Mail, BadgeIcon as IdCard, Type, Calendar, UserCircle } from "lucide-react"
 // import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -10,7 +10,15 @@ import { Separator } from "@/components/ui/separator"
 import DashboardLayout from "@/components/layouts/dashboard-layout"
 
 export default function UserProfilePage() {
-  const user = getUserInfo()
+  const [user, setUser] = useState<User | null>(null);
+  
+    useEffect(() => {
+      const userData = getUserInfo();
+      if (userData) {
+        setUser(userData);
+      }
+    }, []);
+  
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -59,7 +67,7 @@ export default function UserProfilePage() {
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-3 min-w-[150px]">
-                  <User className="w-6 h-6 text-blue-500 flex-shrink-0" />
+                  <U className="w-6 h-6 text-blue-500 flex-shrink-0" />
                   <span className="font-semibold text-gray-700 text-lg">Nome:</span>
                 </div>
                 <p className="text-gray-600 ml-9 sm:ml-0 text-lg">{user?.fullName || "Nome não disponível"}</p>

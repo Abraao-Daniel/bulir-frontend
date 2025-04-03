@@ -1,7 +1,9 @@
+"use client";
 import { redirect } from "next/navigation"
-import { getAuthToken, getUserInfo } from "@/lib/auth"
+import { getAuthToken, getUserInfo, User } from "@/lib/auth"
 import DashboardLayout from "@/components/layouts/dashboard-layout"
 import BookingForm from "@/components/bookings/booking-form"
+import { useEffect, useState } from "react"
 
 export default function CreateBookingPage() {
   // Check if user is authenticated
@@ -11,7 +13,15 @@ export default function CreateBookingPage() {
   // }
 
   // Get user info
-  const user = getUserInfo()
+  const [user, setUser] = useState<User | null>(null);
+  
+    useEffect(() => {
+      const userData = getUserInfo();
+      if (userData) {
+        setUser(userData);
+      }
+    }, []);
+  
 
   // Only clients can create bookings
   //  if (user?.userType !== "client") {

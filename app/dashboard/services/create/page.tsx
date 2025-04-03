@@ -13,7 +13,7 @@ export default function CreateServicePage() {
   // }
 
   // Get user info
-   const user = getUserInfo()
+
 
   //  Only providers can create services
   //  if (user?.userType !== "provider") {

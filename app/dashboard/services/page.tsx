@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { redirect, usePathname } from "next/navigation"
-import { getAuthToken, getUserInfo } from "@/lib/auth"
+import { getAuthToken, getUserInfo, User } from "@/lib/auth"
 import DashboardLayout from "@/components/layouts/dashboard-layout"
 import ServicesList from "@/components/services/services-list"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function ServicesPage() {
   // Check if user is authenticated
@@ -17,7 +17,15 @@ export default function ServicesPage() {
   // Get user info
     const path = usePathname() 
   
-    const user = getUserInfo()
+    const [user, setUser] = useState<User | null>(null);
+    
+      useEffect(() => {
+        const userData = getUserInfo();
+        if (userData) {
+          setUser(userData);
+        }
+      }, []);
+    
      if (!user) {
        redirect("/")
      }
