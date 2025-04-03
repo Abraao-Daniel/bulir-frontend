@@ -1,7 +1,7 @@
 // import { getAuthToken } from "./auth"
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://bulir-backend-3nhbtru02-abraaodaniels-projects.vercel.app/"
-// const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3004/api"
+// const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://bulir-backend-3nhbtru02-abraaodaniels-projects.vercel.app/"
+ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3004/api"
 
 
 interface ApiOptions {
