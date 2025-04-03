@@ -4,9 +4,10 @@ try {
 } catch (e) {
   // ignore error
 }
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  distDir: 'dist', // Define a pasta de saída como 'dist'
   eslint: {
     ignoreDuringBuilds: true,
   },
