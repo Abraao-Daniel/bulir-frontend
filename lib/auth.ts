@@ -1,3 +1,4 @@
+"use client";
 import { jwtDecode } from "jwt-decode"
 
 export interface User {
@@ -62,7 +63,7 @@ export const setUserInfo = (): void => {
 // Get user info from localStorage
 export const getUserInfo = (): User | null => {
   if (typeof window === "undefined") return null
-  const user = localStorage?.getItem("user")
+  const user = localStorage ? localStorage?.getItem("user"): null
   return user ? JSON.parse(user) : null
 }
 

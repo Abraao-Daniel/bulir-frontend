@@ -1,9 +1,11 @@
+"use client";
 import { redirect } from "next/navigation"
 // import { getAuthToken, getUserInfo } from "@/lib/auth"
 import DashboardLayout from "@/components/layouts/dashboard-layout"
 import ClientDashboard from "@/components/dashboard/client-dashboard"
 import ProviderDashboard from "@/components/dashboard/provider-dashboard"
-import { getUserInfo } from "@/lib/auth"
+import { getUserInfo, User } from "@/lib/auth"
+import { useEffect, useState } from "react"
 
 export default function DashboardPage() {
   // Check if user is authenticated
@@ -13,9 +15,16 @@ export default function DashboardPage() {
   // }
 
   //  Get user info
-   const user = getUserInfo()
+  const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    const userData = getUserInfo();
+    if (userData) {
+      setUser(userData);
+    }
+  }, []);
 
+ 
   return (
     <DashboardLayout>
       <div className="p-6">
