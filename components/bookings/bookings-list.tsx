@@ -85,12 +85,12 @@ export default function BookingsList() {
                 <span>{new Date(booking.bookingDate).toLocaleTimeString()}</span>
               </div>
 
-              {/* {user?.userType === "provider" && ( */}
+               {user?.userType === "provider" && ( 
                 <div className="text-sm">
                   <span className="text-muted-foreground">Client: </span>
                   <span>{booking.clientName}</span>
                 </div>
-              {/* )} */}
+              )} 
 
               <div className="flex items-center justify-between mt-2">
                 <span

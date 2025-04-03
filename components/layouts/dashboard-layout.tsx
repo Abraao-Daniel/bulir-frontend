@@ -19,14 +19,7 @@ export default function DashboardLayout({
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const user = {
-    fullName: "Edson Builir",
-    nif: "dsdsdsdfdgsf",
-    email: "edson@exemplo.com",
-    password: "1234ssda56",
-    userType: "provider",
-    id: 9,
-  };
+  const user = JSON.parse(localStorage.getItem("user"))
 
   // Close mobile menu when path changes
   useEffect(() => {

@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/components/ui/use-toast"
+import {  getUserInfo } from "@/lib/auth"
 
 export default function BookingForm() {
   const [serviceId, setServiceId] = useState<string>("")
@@ -24,7 +25,7 @@ export default function BookingForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { toast } = useToast()
-
+  const user = getUserInfo()
   // Get serviceId from query params if available
   useEffect(() => {
     const id = searchParams.get("serviceId")
@@ -51,6 +52,7 @@ export default function BookingForm() {
       await addBooking({
         serviceId: Number.parseInt(serviceId),
         bookingDate: dateTime.toISOString(),
+        user: Number(user?.id)
       })
 
       toast({

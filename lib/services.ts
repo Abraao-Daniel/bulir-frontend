@@ -15,6 +15,7 @@ export interface CreateServiceData {
   name: string
   description: string
   price: number
+  user: number
 }
 
 // Get all services
@@ -24,7 +25,7 @@ export async function getServices(): Promise<Service[]> {
 
 // Get service by ID
 export async function getServiceById(id: number): Promise<Service> {
-  return fetchApi<Service>(`/services/${id}`)
+  return fetchApi<Service>(`/services/id=${id}`)
 }
 
 // Create a new service

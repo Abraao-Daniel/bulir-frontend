@@ -48,7 +48,7 @@ export const useServicesStore = create<ServicesState>((set, get) => ({
   updateService: async (id, data) => {
     set({ isLoading: true, error: null })
     try {
-      const updatedService = await updateService(id, data)
+      const updatedService = await updateService(id,data)
       set({
         services: get().services.map((service) => (service.id === id ? updatedService : service)),
         isLoading: false,

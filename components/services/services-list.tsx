@@ -9,10 +9,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Edit, Trash2, Calendar, Loader2 } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
+import { getUserInfo } from "@/lib/auth"
 
 export default function ServicesList() {
   const { services, isLoading, error, fetchServices, removeService } = useServicesStore()
-  const { user } = useAuthStore()
+  const user = getUserInfo()
   
   const router = useRouter()
   const { toast } = useToast()
@@ -93,21 +94,21 @@ export default function ServicesList() {
                 <Button variant="outline" size="sm" asChild>
                   <Link href={`/dashboard/services/${service.id}/edit`}>
                     <Edit className="w-4 h-4 mr-2" />
-                    Edit
+                    Editar
                   </Link>
                 </Button>
                 <Button variant="destructive" size="sm" onClick={() => handleDelete(service.id)}>
                   <Trash2 className="w-4 h-4 mr-2" />
-                  Delete
+                  Eliminar
                 </Button>
               </>
             ) : user?.userType === "client" ? (
               <Button className="w-full" size="sm" onClick={() => handleBookService(service.id)}>
                 <Calendar className="w-4 h-4 mr-2" />
-                Book Service
+                Reservar serviço
               </Button>
             ) : (
-              <p className="text-sm text-muted-foreground">Service details</p>
+              <p className="text-sm text-muted-foreground">Detalhes do serviço</p>
             )}
           </CardFooter>
         </Card>

@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { useToast } from "@/components/ui/use-toast"
+import { getUserInfo } from "@/lib/auth"
 
 interface ServiceFormProps {
   service?: Service
@@ -28,6 +29,7 @@ export default function ServiceForm({ service }: ServiceFormProps) {
   const { toast } = useToast()
 
   const isEditing = !!service
+  const user = getUserInfo()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -38,6 +40,7 @@ export default function ServiceForm({ service }: ServiceFormProps) {
         name,
         description,
         price: Number.parseFloat(price),
+        user:user?.id
       }
 
       if (isEditing && service) {

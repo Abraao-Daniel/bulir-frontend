@@ -36,12 +36,13 @@ export const useAuthStore = create<AuthState>()(
       login: async (data) => {
         set({ isLoading: true, error: null })
         try {
-          const response = await fetchApi<{ token: string }>("/login", {
+          const response = await fetchApi<{ token: string; user: string }>("/login", {
             method: "POST",
             body: data,
           })
 
           setAuthToken(response.token)
+          localStorage?.setItem("user", JSON.stringify(response.user))
           const user = getUserInfo()
           set({ user, isLoading: false })
         } catch (error) {

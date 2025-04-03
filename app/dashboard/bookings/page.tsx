@@ -5,7 +5,7 @@ import BookingsList from "@/components/bookings/bookings-list"
 
 export default function BookingsPage() {
   //  Check if user is authenticated
-   const token = getAuthToken()
+  //  const token = getAuthToken()
   // if (!token) {
   //   redirect("/")
   // }
@@ -13,7 +13,7 @@ export default function BookingsPage() {
   return (
     <DashboardLayout>
       <div className="p-6">
-        <h1 className="text-2xl font-bold mb-6">My Bookings</h1>
+        <h1 className="text-2xl font-bold mb-6">Minhas reservas</h1>
         <BookingsList />
       </div>
     </DashboardLayout>

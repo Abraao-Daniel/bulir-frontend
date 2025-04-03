@@ -15,9 +15,9 @@ export default async function EditServicePage({ params }: { params: { id: string
   const user = getUserInfo()
 
   // Only providers can edit services
-  if (user?.userType !== "provider") {
-    redirect("/dashboard")
-  }
+  // if (user?.userType !== "provider") {
+  //   redirect("/dashboard")
+  // }
 
   // Get service details
   const service = await getServiceById(Number.parseInt(params.id))

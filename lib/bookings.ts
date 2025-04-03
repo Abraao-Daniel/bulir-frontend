@@ -16,6 +16,7 @@ export interface Booking {
 export interface CreateBookingData {
   serviceId: number
   bookingDate: string
+  user: number
 }
 
 // Get all bookings
