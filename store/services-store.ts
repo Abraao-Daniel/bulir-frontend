@@ -6,8 +6,8 @@ interface ServicesState {
   isLoading: boolean
   error: string | null
   fetchServices: () => Promise<void>
-  addService: (data: { name: string; description: string; price: number }) => Promise<void>
-  updateService: (id: number, data: { name: string; description: string; price: number }) => Promise<void>
+  addService: (data: { name: string; description: string; price: number; user: number }) => Promise<void>
+  updateService: (id: number, data: { name: string; description: string; price: number ; user: number }) => Promise<void>
   removeService: (id: number) => Promise<void>
 }
 

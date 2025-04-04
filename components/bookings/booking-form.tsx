@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import type React from "react"
 
@@ -52,7 +52,8 @@ export default function BookingForm() {
       await addBooking({
         serviceId: Number.parseInt(serviceId),
         bookingDate: dateTime.toISOString(),
-        user: Number(user?.id)
+        user:  Number(user?.id)
+
       })
 
       toast({

@@ -4,10 +4,10 @@ import RegisterForm from "@/components/auth/register-form"
 
 export default function RegisterPage() {
   // If user is already logged in, redirect to dashboard
-  const token = getAuthToken()
-  if (token) {
-    redirect("/dashboard")
-  }
+  // const token = getAuthToken()
+  // if (token) {
+  //   redirect("/dashboard")
+  // }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">

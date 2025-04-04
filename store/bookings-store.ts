@@ -6,7 +6,7 @@ interface BookingsState {
   isLoading: boolean
   error: string | null
   fetchBookings: () => Promise<void>
-  addBooking: (data: { serviceId: number; bookingDate: string }) => Promise<void>
+  addBooking: (data: { serviceId: number; bookingDate: string; user: number }) => Promise<void>
   cancelBooking: (id: number) => Promise<void>
 }
 

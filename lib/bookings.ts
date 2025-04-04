@@ -11,13 +11,15 @@ export interface Booking {
   updatedAt: string
   service?: Service
   clientName?: string
+  user?: number;
 }
 
-export interface CreateBookingData {
-  serviceId: number
-  bookingDate: string
-  user: number
+interface CreateBookingData {
+  serviceId: number;
+  bookingDate: string;
+  user?: number;
 }
+
 
 // Get all bookings
 export async function getBookings(): Promise<Booking[]> {

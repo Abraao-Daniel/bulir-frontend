@@ -7,21 +7,13 @@ import { useEffect, useState } from "react"
 
 export default function CreateBookingPage() {
   // Check if user is authenticated
-  const token = getAuthToken()
+  // const token = getAuthToken()
   // if (!token) {
   //   redirect("/")
   // }
 
   // Get user info
-  const [user, setUser] = useState<User | null>(null);
-  
-    useEffect(() => {
-      const userData = getUserInfo();
-      if (userData) {
-        setUser(userData);
-      }
-    }, []);
-  
+ 
 
   // Only clients can create bookings
   //  if (user?.userType !== "client") {

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 
 export default function ServicesPage() {
   // Check if user is authenticated
-  const token = getAuthToken()
+  // const token = getAuthToken()
   // if (!token) {
   //   redirect("/")
   // }

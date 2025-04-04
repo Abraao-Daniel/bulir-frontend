@@ -8,14 +8,14 @@ try {
 const nextConfig = {
   output: 'export',
   distDir: 'dist', // Define a pasta de saída como 'dist'
+  images: {
+    unoptimized: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
   },
   experimental: {
     webpackBuildWorker: true,
